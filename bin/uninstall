@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+
+
+if [ -d "/usr/local/sinopec" ]; then
+	killall DMAgent
+	rm -rf /usr/local/sinopec
+fi
+#	sed /sinopec_upload/d /etc/rc.d/rc.local > /etc/rc.d/rc.local.tmp
+#	mv -f /etc/rc.d/rc.local.tmp /etc/rc.d/rc.local
+#	chmod a+x /etc/rc.d/rc.local
+  echo "has uninstalled"	

@@ -1,0 +1,28 @@
+#!/bin/sh
+#
+
+if [ $# == 0 ] ; then 
+	if [  -d "/usr/local/sinopec" ]; then
+		./uninstall
+	fi
+	
+	if [  -d "/usr/local/sinopec_cfg" ]
+	then echo "had Regist!!!!"
+	else
+		mkdir  /usr/local/sinopec_cfg
+		echo "/usr/local/sinopec/StarA" >> /etc/rc.d/rc.local
+		chmod a+x /etc/rc.d/rc.local
+	fi
+
+	mkdir  /usr/local/sinopec
+	chmod a+x DMRegist
+	./DMRegist
+
+	cp -f DMAgent /usr/local/sinopec/
+	cp -f StarA /usr/local/sinopec/
+	chmod a+x /usr/local/sinopec/StarA
+	chmod a+x /usr/local/sinopec/DMAgent
+
+	/usr/local/sinopec/DMAgent
+	echo "DMClinet installed sucess!!!"		
+fi 
